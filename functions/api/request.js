@@ -186,22 +186,43 @@ export async function onRequest({ request, env }) {
         subject: subject,
         html: htmlBody,
         text: textBody,
-        ...(email ? { reply_to: email } : {}),
+        ...(email ? { reply_to: [email] } : {}),
       }),
     });
 
     if (!response.ok) {
+      let providerMessage = "";
+      try {
+        providerMessage = (await response.text()).slice(0, 1200);
+      } catch {
+        providerMessage = "";
+      }
+
+      // Keep details in Cloudflare logs to diagnose Resend errors.
+      // Never log API keys, authorization headers, or full request payloads.
+      console.error("Resend rejected service request", {
+        status: response.status,
+        requestId: requestId,
+        providerMessage: providerMessage,
+      });
+
       return json({
         ok: false,
         code: "email_provider_error",
-        message: "سرویس ایمیل درخواست را نپذیرفت. فرستنده تأییدشده و تنظیمات Resend را بررسی کنید و دوباره تلاش کنید.",
+        requestId: requestId,
+        message: "سرویس ایمیل درخواست را نپذیرفت. لطفاً گزارش Worker در Cloudflare را با شناسه درخواست بررسی کنید.",
       }, 502);
     }
-  } catch {
+  } catch (error) {
+    console.error("Resend request could not reach provider", {
+      requestId: requestId,
+      error: error instanceof Error ? error.message.slice(0, 500) : "unknown_error",
+    });
     return json({
       ok: false,
       code: "email_provider_unreachable",
-      message: "ارتباط با سرویس ارسال ایمیل برقرار نشد. لطفاً تنظیمات اتصال را بررسی کنید و دوباره تلاش کنید.",
+      requestId: requestId,
+      message: "ارتباط با سرویس ارسال ایمیل برقرار نشد. لطفاً گزارش Worker در Cloudflare را بررسی کنید و دوباره تلاش کنید.",
     }, 502);
   }
 
