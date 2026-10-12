@@ -35,9 +35,10 @@
 این مخزن برای Workers Static Assets به‌همراه Worker API تنظیم شده است، نه پروژه Pages خالص.
 
 1. در Worker متصل به این ریپازیتوری، Build command می‌تواند خالی بماند؛ Deploy command را روی npx wrangler deploy قرار دهید. پیکربندی از wrangler.jsonc خوانده می‌شود.
-2. فایل اصلی src/index.js است و assets directory روی ریشه مخزن (.) قرار دارد.
-3. Worker مسیر /api/* را قبل از static asset routing اجرا می‌کند و بقیه درخواست‌ها را از binding به نام ASSETS به فایل‌های استاتیک می‌سپارد.
-4. پس از شناسایی پیکربندی Wrangler و انتشار مجدد، Runtime Variables and Secrets را در تنظیمات Worker اضافه کنید.
+2. مهم: مقدار name در wrangler.jsonc فعلاً alirezade-site است. اگر می‌خواهید همین Worker موجود به‌روزرسانی شود، name را دقیقاً برابر نام Worker نمایش‌داده‌شده در داشبورد قرار دهید؛ در غیر این صورت Wrangler ممکن است Worker جداگانه‌ای با نام جدید منتشر کند.
+3. فایل اصلی src/index.js است و assets directory روی ریشه مخزن (.) قرار دارد.
+4. Worker مسیر /api/* را قبل از static asset routing اجرا می‌کند و بقیه درخواست‌ها را از binding به نام ASSETS به فایل‌های استاتیک می‌سپارد.
+5. پس از شناسایی پیکربندی Wrangler و انتشار مجدد، Runtime Variables and Secrets را در تنظیمات Worker اضافه کنید.
 
 ## اتصال دامنه alirezade.ir
 1. در داشبورد Cloudflare به پروژه Worker بروید و Settings → Domains & Routes یا بخش Custom Domains را باز کنید.
