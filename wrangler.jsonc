@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
+  "name": "alirezade-site",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  }
+}
