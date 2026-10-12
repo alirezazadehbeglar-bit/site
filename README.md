@@ -8,19 +8,19 @@
 - blog.html — وبلاگ و راهنماهای فنی
 - assets/css/style.css — استایل مشترک صفحات و نسخه موبایل
 - assets/js/main.js — منوی موبایل و موارد عمومی
-- assets/js/request.js — نقشه، انتخاب مختصات، ارسال ایمیل و جایگزین واتساپ
+- assets/js/request.js — نقشه، انتخاب مختصات و ارسال درخواست فقط از طریق ایمیل
 - functions/api/request.js — منطق اعتبارسنجی و ارسال امن درخواست با Resend
 - src/index.js — ورودی Worker؛ API را اجرا می‌کند و بقیه درخواست‌ها را به assets می‌سپارد
 - wrangler.jsonc — پیکربندی Cloudflare Workers Static Assets
 - .assetsignore — جلوگیری از انتشار فایل‌های منبع و تنظیمات به‌عنوان فایل عمومی سایت
 
 ## فرم درخواست خدمات و ارسال ایمیل
-صفحه request.html از Leaflet و OpenStreetMap برای انتخاب موقعیت پروژه استفاده می‌کند. اطلاعات فرم به مسیر /api/request ارسال می‌شود. Worker سمت‌سرور در src/index.js این مسیر را به functions/api/request.js هدایت می‌کند. ایمیل شامل شرح پروژه، شماره تماس، مختصات و لینک‌های Google Maps و OpenStreetMap است و به alirezazadehbeglar@gmail.com فرستاده می‌شود. اگر سرویس ایمیل با مشکل مواجه شود، فرم لینک جایگزین واتساپ را نشان می‌دهد.
+صفحه request.html از Leaflet و OpenStreetMap برای انتخاب موقعیت پروژه استفاده می‌کند. اطلاعات فرم به مسیر /api/request ارسال می‌شود. Worker سمت‌سرور در src/index.js این مسیر را به functions/api/request.js هدایت می‌کند. ایمیل شامل شرح پروژه، شماره تماس، مختصات و لینک‌های Google Maps و OpenStreetMap است و به alirezazadehbeglar@gmail.com فرستاده می‌شود. ارسال درخواست فقط از طریق ایمیل انجام می‌شود؛ اگر سرویس ایمیل با مشکل مواجه شود، پیام خطا نمایش داده می‌شود و هیچ مسیر جایگزینی مانند واتساپ ارائه نمی‌شود.
 
 ### راه‌اندازی ارسال ایمیل
 1. یک حساب Resend بسازید و در آن یک دامنه فرستنده را تأیید کنید.
 2. در Resend ترجیحاً زیر‌دامنه‌ای مانند send.alirezade.ir اضافه کنید تا مجبور به تغییر بی‌مورد سیاست‌های ایمیل دامنه اصلی نشوید. رکوردهای دقیق DNS را از Resend بردارید و در Cloudflare اضافه کنید؛ مقادیر را حدس نزنید.
-3. پس از انتشار پیکربندی Worker، در Cloudflare به Workers & Pages → alirezade-site → Settings → Variables and Secrets بروید.
+3. پس از انتشار پیکربندی Worker، در Cloudflare به Workers & Pages → site1 → Settings → Variables and Secrets بروید.
 4. یک Secret با نام RESEND_API_KEY بسازید و API key ایجادشده در Resend را در آن قرار دهید. این مقدار نباید در HTML، JavaScript مرورگر یا GitHub قرار بگیرد.
 5. یک variable با نام CONTACT_FROM_EMAIL بسازید؛ مقدار نمونه بعد از تأیید دامنه فرستنده: Ali RezaZadeh Beglar <requests@send.alirezade.ir>. از دامنه فرستنده‌ای استفاده کنید که در Resend واقعاً تأیید شده باشد.
 6. مقادیر را برای محیط Production تنظیم کنید و سپس Deploy انجام دهید تا Worker به مقادیر جدید دسترسی داشته باشد.
@@ -35,7 +35,7 @@
 این مخزن برای Workers Static Assets به‌همراه Worker API تنظیم شده است، نه پروژه Pages خالص.
 
 1. در Worker متصل به این ریپازیتوری، Build command می‌تواند خالی بماند؛ Deploy command را روی npx wrangler deploy قرار دهید. پیکربندی از wrangler.jsonc خوانده می‌شود.
-2. مهم: مقدار name در wrangler.jsonc فعلاً alirezade-site است. اگر می‌خواهید همین Worker موجود به‌روزرسانی شود، name را دقیقاً برابر نام Worker نمایش‌داده‌شده در داشبورد قرار دهید؛ در غیر این صورت Wrangler ممکن است Worker جداگانه‌ای با نام جدید منتشر کند.
+2. مهم: مقدار name در wrangler.jsonc برابر site1 تنظیم شده است تا با Worker موجود هماهنگ باشد.
 3. فایل اصلی src/index.js است و assets directory روی ریشه مخزن (.) قرار دارد.
 4. Worker مسیر /api/* را قبل از static asset routing اجرا می‌کند و بقیه درخواست‌ها را از binding به نام ASSETS به فایل‌های استاتیک می‌سپارد.
 5. پس از شناسایی پیکربندی Wrangler و انتشار مجدد، Runtime Variables and Secrets را در تنظیمات Worker اضافه کنید.
