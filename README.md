@@ -23,9 +23,10 @@
 3. پس از انتشار پیکربندی Worker، در Cloudflare به Workers & Pages → site1 → Settings → Variables and Secrets بروید.
 4. یک Secret با نام RESEND_API_KEY بسازید و API key ایجادشده در Resend را در آن قرار دهید. این مقدار نباید در HTML، JavaScript مرورگر یا GitHub قرار بگیرد.
 5. متغیر CONTACT_TO_EMAIL باید برابر alirezazadehbeglar@gmail.com باشد؛ این مقدار در wrangler.jsonc درج شده است.
-6. متغیر CONTACT_FROM_EMAIL را روی Ali RezaZadeh Beglar <requests@send.alirezade.ir> تنظیم کنید. از دامنه فرستنده‌ای استفاده کنید که در Resend واقعاً تأیید شده باشد.
+6. متغیر CONTACT_FROM_EMAIL را روی requests@send.alirezade.ir تنظیم کنید. از دامنه فرستنده‌ای استفاده کنید که در Resend واقعاً تأیید شده باشد.
 7. مقادیر را برای محیط Production تنظیم کنید و سپس Deploy انجام دهید تا Worker به مقادیر جدید دسترسی داشته باشد.
 8. یک درخواست آزمایشی بفرستید، صندوق Inbox و پوشه Spam را بررسی کنید. API ایمیل را از سمت سرور درخواست می‌کند و پاسخ موفق فقط زمانی برمی‌گردد که Resend درخواست را پذیرفته باشد.
+9. اگر فرم خطای Resend را نشان داد، به Cloudflare → Workers & Pages → site1 → Observability → Logs بروید و گزارش با شناسه پیگیری نمایش‌داده‌شده را باز کنید. پیام خطای Resend شامل وضعیت HTTP و پاسخ خطا ثبت می‌شود؛ کلید API و اطلاعات کامل فرم در گزارش ثبت نمی‌شوند. بخش Logs/Emails در داشبورد Resend را هم بررسی کنید.
 
 کلید Resend را هرگز داخل HTML/JavaScript عمومی یا GitHub قرار ندهید. فقط به‌عنوان Cloudflare Secret ذخیره‌اش کنید.
 
