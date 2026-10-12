@@ -42,7 +42,7 @@
 5. برای پروژه بدون فریم‌ورک (static HTML) تنظیمات را وارد کنید:
    - Framework preset: None
    - Production branch: main
-   - Build command: خالی بگذارید یا طبق مستندات Pages مقدار exit 0 را وارد کنید.
+   - Build command: exit 0 (برای پروژه استاتیک بدون build و فعال‌بودن Pages Functions).
    - Build output directory: . (نقطه؛ چون index.html در ریشه است)
    - Root directory: خالی، یعنی ریشه مخزن.
 6. Save and Deploy را بزنید. پس از اتمام Deploy، آدرس آزمایشی با پسوند pages.dev نشان داده می‌شود. آن را روی موبایل و دسکتاپ آزمایش کنید.
