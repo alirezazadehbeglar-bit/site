@@ -93,7 +93,11 @@
       });
       var result={};
       try{result=await response.json();}catch(_){}
-      if(!response.ok||!result.ok)throw new Error(result.message||'ارسال ایمیل موفق نبود.');
+      if(!response.ok||!result.ok){
+        var failureMessage=result.message||'ارسال ایمیل موفق نبود.';
+        if(result.requestId)failureMessage+=' شناسه پیگیری: '+result.requestId;
+        throw new Error(failureMessage);
+      }
 
       if(feedback)feedback.textContent=result.message||'درخواست به سرویس ایمیل ارسال شد.';
       if(locationPoint){
