@@ -3,6 +3,9 @@
   "name": "alirezade-site",
   "main": "src/index.js",
   "compatibility_date": "2026-10-12",
+  "vars": {
+    "CONTACT_FROM_EMAIL": "Ali RezaZadeh Beglar <requests@send.alirezade.ir>"
+  },
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
