@@ -1,4 +1,3 @@
-const RECIPIENT = "alirezazadehbeglar@gmail.com";
 const MAX_BODY_BYTES = 24000;
 
 function json(data, status = 200) {
@@ -111,17 +110,19 @@ export async function onRequest({ request, env }) {
   }
 
   const apiKey = typeof env.RESEND_API_KEY === "string" ? env.RESEND_API_KEY.trim() : "";
+  const recipient = typeof env.CONTACT_TO_EMAIL === "string" ? env.CONTACT_TO_EMAIL.trim() : "";
   const from = typeof env.CONTACT_FROM_EMAIL === "string" ? env.CONTACT_FROM_EMAIL.trim() : "";
 
-  if (!apiKey || !from) {
+  if (!apiKey || !recipient || !from) {
     return json({
       ok: false,
       code: "email_not_configured",
-      message: "ارسال ایمیل هنوز پیکربندی نشده است. مدیر سایت باید کلید Resend و آدرس فرستنده تأییدشده را در تنظیمات Cloudflare ثبت کند.",
+      message: "ارسال ایمیل هنوز پیکربندی نشده است. مدیر سایت باید کلید Resend، ایمیل مقصد و آدرس فرستنده تأییدشده را در تنظیمات Cloudflare بررسی کند.",
     }, 503);
   }
 
   const requestId = crypto.randomUUID();
+  const receivedAt = new Date().toISOString();
   const fields = [
     ["نام و نام خانوادگی", name],
     ["شماره تماس", phone],
@@ -132,6 +133,7 @@ export async function onRequest({ request, env }) {
     ["ایمیل یا راه ارتباطی", email || "ذکر نشده"],
     ["محدوده خدمات میدانی", "ارومیه و آذربایجان غربی"],
     ["صفحه ارسال درخواست", page],
+    ["زمان دریافت (UTC)", receivedAt],
     ["شناسه درخواست", requestId],
   ];
 
@@ -180,7 +182,7 @@ export async function onRequest({ request, env }) {
       },
       body: JSON.stringify({
         from: from,
-        to: [RECIPIENT],
+        to: [recipient],
         subject: subject,
         html: htmlBody,
         text: textBody,
