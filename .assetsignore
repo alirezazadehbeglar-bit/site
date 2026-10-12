@@ -1,0 +1,8 @@
+src/**
+functions/**
+.git/**
+.github/**
+wrangler.jsonc
+.assetsignore
+_routes.json
+README.md
