@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173b30">
+  <meta name="description" content="علی رضازاده بگلر؛ خدمات نقشه‌برداری، نقشه UTM، برداشت زمینی، GIS و تحلیل داده‌های مکانی.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="علی رضازاده بگلر | نقشه‌برداری و خدمات مکانی">
+  <meta property="og:description" content="از برداشت دقیق زمین تا داده‌های مکانی قابل استفاده؛ درخواست مشاوره و خدمات.">
+  <title>علی رضازاده بگلر | نقشه‌برداری و خدمات مکانی</title>
+  <style>
+    :root{--forest:#173b30;--forest-2:#244d3f;--mint:#c8ddc9;--paper:#f6f4ef;--white:#fffefa;--ink:#1d2823;--muted:#68746d;--line:#dce2da;--terra:#d77e53;--container:1210px;--serif:Georgia,"Times New Roman",serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:95px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
+    .topline{background:var(--forest);color:#f8f6f0;font-size:11px}
+    .topline-inner{min-height:36px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .topline-note{display:flex;align-items:center;gap:10px;opacity:.92}
+    .topline-dot{width:6px;height:6px;background:#d2dfb8;border-radius:50%;box-shadow:0 0 0 4px #ffffff12}
+    .topline a{direction:ltr;white-space:nowrap;color:#e0e8d9}
+    .header{position:sticky;top:0;z-index:50;background:#f8f7f2ed;backdrop-filter:blur(16px);border-bottom:1px solid #dfe3dc}
+    .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .brand-mark{width:43px;height:43px;display:grid;place-items:center;background:var(--forest);color:#f7f1e4;font-family:var(--serif);font-size:21px;letter-spacing:-2px;border-radius:3px}
+    .brand-name{display:block;font-weight:800;font-size:14px;line-height:1.5}
+    .brand-sub{display:block;font-size:9px;letter-spacing:1.6px;color:var(--muted);direction:ltr;text-align:right}
+    .nav-links{display:flex;align-items:center;gap:27px;font-size:12px;color:#445149}
+    .nav-links a{position:relative;padding-block:9px}
+    .nav-links a:after{content:"";height:1px;position:absolute;right:0;bottom:2px;left:0;background:var(--terra);transform:scaleX(0);transform-origin:right;transition:transform .25s}
+    .nav-links a:hover:after{transform:scaleX(1)}
+    .nav-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--forest);color:white;padding:12px 18px;font-size:12px;font-weight:700;white-space:nowrap;transition:background .2s}
+    .nav-cta:hover,.btn-primary:hover{background:#2c5746}
+    .nav-toggle{display:none;border:1px solid var(--line);background:transparent;width:42px;height:42px;font-size:22px;color:var(--forest)}
+    .hero{padding:55px 0 66px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1fr 1.03fr;gap:64px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:#667767;font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+    .eyebrow:before{content:"";display:inline-block;width:28px;height:1px;background:var(--terra)}
+    h1,h2,h3,p{margin-top:0}
+    .hero h1{font-size:clamp(36px,4.5vw,62px);line-height:1.32;letter-spacing:-1.7px;font-weight:850;margin:18px 0 17px;max-width:640px}
+    .hero h1 span{color:#738c75}
+    .hero-copy>p{font-size:14px;line-height:2.25;color:#657168;max-width:520px;margin-bottom:26px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{min-height:48px;padding:0 19px;display:inline-flex;align-items:center;justify-content:center;gap:13px;font-size:12px;font-weight:800;transition:transform .2s,background .2s,border-color .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--forest);color:white}
+    .btn-outline{border:1px solid #b9c5ba;color:var(--forest);background:transparent}
+    .btn-outline:hover{border-color:var(--forest)}
+    .hero-foot{margin-top:31px;padding-top:20px;border-top:1px solid var(--line);display:flex;align-items:center;gap:18px;color:#59665c;font-size:11px}
+    .hero-foot strong{font-size:12px;color:var(--forest);display:block}
+    .mini-line{height:28px;width:1px;background:#cbd3c9}
+    .hero-art{position:relative;min-height:530px;isolation:isolate}
+    .hero-photo{position:absolute;inset:0 25px 28px 0;background:#c8d1c5 url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1300&q=85") center/cover no-repeat;filter:saturate(.72)}
+    .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#102b1c05 20%,#102b1c75 100%)}
+    .art-outline{position:absolute;inset:18px 0 0 44px;border:1px solid #8d9b884c;pointer-events:none}
+    .hero-label{position:absolute;right:0;bottom:0;background:var(--white);padding:20px 23px;min-width:230px;box-shadow:0 20px 65px #17291d19}
+    .hero-label small{display:block;font-size:9px;letter-spacing:1.5px;color:#7c897b;direction:ltr;text-align:right}
+    .hero-label strong{display:block;font-size:14px;color:var(--forest);margin-top:4px}
+    .hero-label span{font-size:11px;color:var(--muted)}
+    .vertical-tag{position:absolute;left:-5px;top:40px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:2.4px;color:#6b796d}
+    .floating-index{position:absolute;left:30px;bottom:72px;color:white;direction:ltr;text-align:left;font:11px var(--serif);letter-spacing:2px}
+    .intro-strip{background:#e9ede5;border-block:1px solid #dce2d9}
+    .strip-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .strip-item{display:flex;align-items:center;gap:16px;padding:25px 24px;border-left:1px solid #d4dbd2}
+    .strip-item:first-child{padding-right:0}
+    .strip-item:last-child{border-left:0}
+    .strip-no{font:22px var(--serif);color:var(--terra)}
+    .strip-item strong{font-size:12px;display:block;color:var(--forest)}
+    .strip-item span:last-child{font-size:10px;color:#6d786f;display:block}
+    .section{padding:100px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:38px}
+    .section-head h2,.about-copy h2,.contact-copy h2{font-size:clamp(28px,3.2vw,43px);line-height:1.45;letter-spacing:-.8px;margin:12px 0 0}
+    .section-head>p{max-width:400px;font-size:12px;line-height:2.2;color:var(--muted);margin-bottom:4px}
+    .services{background:var(--white)}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .service-card{padding:25px 22px 22px;border:1px solid #e3e7df;background:#fbfaf6;min-height:260px;display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s}
+    .service-card:hover{transform:translateY(-5px);border-color:#abbcac;box-shadow:0 18px 40px #203d2d0b}
+    .service-icon{width:44px;height:44px;display:grid;place-items:center;background:#e8eee5;color:var(--forest);font-size:20px;margin-bottom:21px}
+    .service-card .n{font:11px var(--serif);color:var(--terra);direction:ltr;text-align:right;margin-bottom:8px}
+    .service-card h3{font-size:17px;color:var(--forest);margin-bottom:10px}
+    .service-card p{color:var(--muted);font-size:11px;line-height:2.2;margin-bottom:20px}
+    .service-card a{margin-top:auto;border-top:1px solid #e2e6df;padding-top:14px;display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:var(--forest)}
+    .about{background:var(--paper)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:78px;align-items:center}
+    .about-photo-wrap{position:relative;padding:0 0 23px 23px}
+    .about-photo{height:490px;background:#ced6ca url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1100&q=85") center/cover no-repeat;filter:saturate(.65)}
+    .about-photo-wrap:after{content:"";position:absolute;z-index:0;left:0;bottom:0;width:68%;height:68%;border:1px solid #9ead9c}
+    .about-card{position:absolute;z-index:1;right:-25px;bottom:48px;background:var(--forest);color:white;padding:23px 26px;max-width:245px}
+    .about-card b{display:block;font-size:15px;margin-bottom:5px}
+    .about-card span{display:block;color:#d6e0d6;font-size:11px;line-height:2}
+    .about-copy>p{margin-top:20px;color:var(--muted);font-size:13px;line-height:2.3}
+    .about-points{list-style:none;padding:0;margin:25px 0 29px;display:grid;gap:12px}
+    .about-points li{display:flex;gap:12px;font-size:12px;align-items:flex-start}
+    .check{width:22px;height:22px;flex-shrink:0;display:grid;place-items:center;background:#e0e9df;color:var(--forest);font-size:12px}
+    .domains{background:var(--forest);color:white}
+    .domains .eyebrow{color:#c1d4c0}
+    .domains .section-head h2{color:white}
+    .domains .section-head>p{color:#cad5cc}
+    .domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .domain-card{position:relative;min-height:320px;display:flex;flex-direction:column;justify-content:end;overflow:hidden;background:#2e493d}
+    .domain-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.65);transition:transform .7s}
+    .domain-card:hover img{transform:scale(1.055)}
+    .domain-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#071d1600 15%,#071d16e8 100%)}
+    .domain-content{position:relative;z-index:1;padding:24px}
+    .domain-content small{font:11px var(--serif);letter-spacing:1.7px;color:#d8b99d;direction:ltr;text-align:right;display:block}
+    .domain-content h3{font-size:20px;margin:8px 0;color:white}
+    .domain-content p{color:#e0e7e0;font-size:11px;margin:0;line-height:2}
+    .process{background:var(--white)}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+    .process-step{padding:24px 22px 0 18px;border-left:1px solid var(--line)}
+    .process-step:last-child{border-left:0}
+    .step-no{font:31px var(--serif);color:#9cad9b;display:block;margin-bottom:27px}
+    .process-step h3{font-size:15px;color:var(--forest);margin-bottom:10px}
+    .process-step p{font-size:11px;line-height:2.2;color:var(--muted);margin:0}
+    .contact{background:#e7ece4}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+    .contact-copy p{max-width:510px;color:var(--muted);font-size:13px;line-height:2.3;margin:20px 0 25px}
+    .contact-panel{background:var(--white);padding:33px;box-shadow:0 20px 55px #1a39290b}
+    .contact-panel h3{font-size:18px;margin-bottom:8px;color:var(--forest)}
+    .contact-panel>p{font-size:11px;color:var(--muted);margin-bottom:25px}
+    .contact-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
+    .contact-row span{font-size:11px;color:var(--muted)}
+    .contact-row strong{font-size:14px;direction:ltr;color:var(--forest)}
+    .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .contact-actions .btn{flex:1}
+    .footer{background:#102a22;color:#f5f3e9;padding:45px 0 22px}
+    .footer-main{display:flex;justify-content:space-between;align-items:center;gap:25px;padding-bottom:30px;border-bottom:1px solid #ffffff23}
+    .footer-brand{display:flex;align-items:center;gap:13px}
+    .footer-brand .brand-mark{background:#f4f1e7;color:var(--forest)}
+    .footer-brand p{font-weight:800;font-size:14px;margin:0}
+    .footer-brand small{display:block;color:#bfcbbf;font-size:9px;margin-top:3px}
+    .footer-links{display:flex;gap:24px;flex-wrap:wrap;font-size:11px;color:#d4dfd4}
+    .footer-bottom{display:flex;justify-content:space-between;gap:15px;padding-top:18px;font-size:10px;color:#b5c3b7}
+    .footer-bottom a{direction:ltr}
+    .mobile-call{display:none}
+    @media(max-width:1050px){.nav-links{gap:16px}.hero-grid{gap:35px}.hero-art{min-height:460px}.service-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:45px}.contact-grid{gap:35px}}
+    @media(max-width:780px){.container{width:min(var(--container),calc(100% - 32px))}.topline-inner{min-height:34px}.topline-note{font-size:10px}.nav{min-height:72px}.nav-links,.nav>.nav-cta{display:none}.nav-toggle{display:block}.nav-links.open{display:flex;position:absolute;top:100%;right:0;left:0;background:var(--white);padding:20px 25px 25px;flex-direction:column;align-items:stretch;gap:6px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px #12291b10}.nav-links.open a{padding:8px 0}.hero{padding:32px 0 45px}.hero-grid{grid-template-columns:1fr;gap:34px}.hero-copy{order:1}.hero-art{order:2;min-height:420px}.hero h1{font-size:clamp(35px,8vw,53px);margin-top:14px}.hero-copy>p{font-size:13px}.hero-foot{margin-top:24px}.strip-grid{grid-template-columns:1fr}.strip-item,.strip-item:first-child{padding:16px 0;border-left:0;border-bottom:1px solid #d4dbd2}.strip-item:last-child{border-bottom:0}.section{padding:70px 0}.section-head{display:block;margin-bottom:27px}.section-head>p{margin-top:17px}.service-grid{gap:10px}.service-card{padding:18px 15px;min-height:250px}.service-card h3{font-size:15px}.service-card p{font-size:10px}.about-grid,.contact-grid{grid-template-columns:1fr;gap:42px}.about-photo{height:390px}.about-card{right:-3px;bottom:40px}.domain-grid{grid-template-columns:1fr 1fr}.domain-card{min-height:285px}.process-grid{grid-template-columns:1fr 1fr;row-gap:30px}.process-step:nth-child(2){border-left:0}.contact-panel{padding:25px}.footer-main{align-items:flex-start;flex-direction:column}.footer-links{gap:14px}}
+    @media(max-width:480px){.container{width:calc(100% - 28px)}.topline-note{letter-spacing:-.2px}.topline-inner{gap:8px}.brand-name{font-size:12px}.brand-sub{font-size:8px;letter-spacing:1px}.nav{gap:10px}.hero-art{min-height:350px}.hero-photo{inset:0 14px 22px 0}.art-outline{inset:12px 0 0 28px}.hero-label{min-width:190px;padding:14px 16px}.hero-label strong{font-size:12px}.vertical-tag{left:0;font-size:8px}.floating-index{left:22px;bottom:49px}.hero h1{letter-spacing:-.7px}.hero-actions .btn{flex:1}.hero-foot{gap:12px;font-size:10px}.hero-foot strong{font-size:11px}.service-grid{grid-template-columns:1fr}.service-card{min-height:unset;padding:21px}.service-icon{margin-bottom:14px}.service-card p{font-size:11px}.about-photo{height:330px}.about-photo-wrap{padding-left:12px}.about-card{max-width:210px;padding:18px}.domain-grid{grid-template-columns:1fr}.domain-card{min-height:310px}.process-grid{grid-template-columns:1fr;gap:0}.process-step{padding:18px 0;border-left:0;border-bottom:1px solid var(--line)}.process-step:last-child{border-bottom:0}.step-no{margin-bottom:8px;font-size:25px}.contact-panel{padding:21px}.contact-row{align-items:flex-start;flex-direction:column}.contact-row strong{font-size:16px}.contact-actions{flex-direction:column}.footer-bottom{flex-direction:column}.mobile-call{position:fixed;z-index:60;bottom:12px;left:14px;right:14px;display:flex;justify-content:center;align-items:center;gap:9px;padding:13px 16px;background:var(--terra);color:white;box-shadow:0 10px 30px #17291d3d;font-size:13px;font-weight:800}.footer{padding-bottom:76px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <div class="container topline-inner">
+      <div class="topline-note"><span class="topline-dot"></span><span>خدمات نقشه‌برداری، مهندسی و داده‌های مکانی</span></div>
+      <a href="tel:09140884403" aria-label="تماس با علی رضازاده بگلر">0914 088 4403</a>
+    </div>
+  </div>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="صفحه اصلی علی رضازاده بگلر">
+        <span class="brand-mark">A<span style="color:#d77e53">.</span>R</span>
+        <span><span class="brand-name">علی رضازاده بگلر</span><span class="brand-sub">SURVEYING · GEOSPATIAL</span></span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="منوی اصلی">
+        <a href="#services">خدمات</a><a href="#about">درباره من</a><a href="#fields">زمینه‌های همکاری</a><a href="#process">روند کار</a><a href="#contact">تماس</a>
+      </nav>
+      <a class="nav-cta" href="#contact">شروع یک پروژه <span aria-hidden="true">↗</span></a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="باز کردن منو" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">نقشه‌برداری و راهکارهای مکانی</span>
+          <h1>پایه‌ی تصمیم‌های درست، <span>داده‌ی دقیق</span> است.</h1>
+          <p>از برداشت زمینی و نقشه‌های UTM تا GIS و تحلیل داده‌های مکانی؛ خدمات را بر اساس نیاز واقعی پروژه تعریف می‌کنیم تا خروجی نهایی روشن، قابل استفاده و قابل پیگیری باشد.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">درباره پروژه صحبت کنیم <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#services">آشنایی با خدمات <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-foot">
+            <div><strong>برداشت دقیق</strong><span>موقعیت و اندازه‌گیری</span></div><span class="mini-line"></span>
+            <div><strong>تحلیل روشن</strong><span>داده برای تصمیم‌گیری</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="تصویر پروژه عمرانی و زیرساخت">
+          <div class="hero-photo" role="img" aria-label="نمایی از عملیات اجرایی و مهندسی در محل پروژه"></div>
+          <div class="art-outline"></div>
+          <div class="vertical-tag">MEASURE · UNDERSTAND · DELIVER</div>
+          <div class="floating-index">FIELD NOTES / 01</div>
+          <div class="hero-label"><small>FROM FIELD TO FINAL OUTPUT</small><strong>اندازه‌گیری با نگاه مهندسی</strong><span>نقشه‌برداری · GIS · داده‌های مکانی</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-strip" aria-label="اصول کاری">
+      <div class="container strip-grid">
+        <div class="strip-item"><span class="strip-no">01</span><div><strong>شناخت مسئله پیش از اجرا</strong><span>تعریف نیاز و خروجی مورد انتظار</span></div></div>
+        <div class="strip-item"><span class="strip-no">02</span><div><strong>توجه به کیفیت داده</strong><span>مختصات، مقیاس و ساختار تحویل</span></div></div>
+        <div class="strip-item"><span class="strip-no">03</span><div><strong>ارتباط شفاف در مسیر کار</strong><span>مراحل مشخص و پاسخ‌گویی مستقیم</span></div></div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">خدمات</span><h2>از برداشت میدانی تا تحلیل مکانی</h2></div>
+          <p>هر پروژه شرایط خودش را دارد. دامنه‌ی خدمت، روش اجرا و قالب خروجی بر اساس مسئله، محدوده و داده‌های در دسترس مشخص می‌شود.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><span class="service-icon">⌖</span><span class="n">SERVICE / 01</span><h3>نقشه‌برداری زمینی</h3><p>برداشت موقعیت و عوارض، نقشه‌برداری توپوگرافی و ثبت وضع موجود برای کاربری‌های ملکی، ساختمانی و عمرانی.</p><a href="#contact">بررسی نیاز پروژه <span>↗</span></a></article>
+          <article class="service-card"><span class="service-icon">▦</span><span class="n">SERVICE / 02</span><h3>نقشه UTM و امور ملکی</h3><p>تهیه و آماده‌سازی نقشه‌های مختصاتی و خروجی‌های مکانی مورد نیاز پرونده‌ها و بررسی‌های ملکی.</p><a href="#contact">بررسی نیاز پروژه <span>↗</span></a></article>
+          <article class="service-card"><span class="service-icon">⌘</span><span class="n">SERVICE / 03</span><h3>GIS و تحلیل مکانی</h3><p>سامان‌دهی لایه‌های مکانی، رقومی‌سازی، ژئورفرنس، تحلیل فضایی و آماده‌سازی داده برای ارائه و تصمیم‌گیری.</p><a href="#contact">بررسی نیاز پروژه <span>↗</span></a></article>
+          <article class="service-card"><span class="service-icon">◉</span><span class="n">SERVICE / 04</span><h3>داده‌های هوایی و ماهواره‌ای</h3><p>بررسی کاربرد داده‌های پهپادی و ماهواره‌ای، استخراج اطلاعات و آماده‌سازی محصولات مکانی متناسب با نیاز پروژه.</p><a href="#contact">بررسی نیاز پروژه <span>↗</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-photo-wrap"><div class="about-photo" role="img" aria-label="تصویر معماری و مهندسی"></div><div class="about-card"><b>هر پروژه از یک سؤال شروع می‌شود.</b><span>هدف، داده‌ی مورد نیاز و شکل تحویل را پیش از انتخاب روش اجرا روشن می‌کنیم.</span></div></div>
+        <div class="about-copy">
+          <span class="eyebrow">درباره رویکرد کاری</span>
+          <h2>فقط یک نقشه تحویل ندهیم؛ مسئله را بهتر بفهمیم.</h2>
+          <p>من علی رضازاده بگلر هستم. رویکرد این وب‌سایت بر ارتباط روشن میان نیاز پروژه، داده‌های مکانی و خروجی قابل استفاده استوار است. هدف این است که پیش از شروع، درباره‌ی دامنه‌ی کار و آنچه قرار است تحویل شود، تصویر مشترکی داشته باشیم.</p>
+          <ul class="about-points">
+            <li><span class="check">✓</span><span>تعریف نیاز پروژه و خروجی مورد انتظار پیش از اجرا</span></li>
+            <li><span class="check">✓</span><span>توجه به سیستم مختصات، دقت و سازگاری داده‌ها</span></li>
+            <li><span class="check">✓</span><span>ارائه توضیحات قابل فهم درباره مسیر انجام کار</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">برای پروژه‌تان تماس بگیرید <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section domains" id="fields">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">زمینه‌های همکاری</span><h2>راهکار متناسب با نوع پروژه</h2></div>
+          <p>چند نمونه از زمینه‌هایی که می‌توان برای آن‌ها درباره‌ی برداشت، داده‌های مکانی یا تحلیل فنی گفت‌وگو کرد.</p>
+        </div>
+        <div class="domain-grid">
+          <article class="domain-card"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80" alt="زیرساخت و اجرای پروژه عمرانی" loading="lazy"><div class="domain-content"><small>01 / SITE</small><h3>زمین و زیرساخت</h3><p>برداشت، نقشه وضع موجود و اطلاعات مکانی برای شناخت شرایط محل.</p></div></article>
+          <article class="domain-card"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="طراحی معماری و توسعه زمین" loading="lazy"><div class="domain-content"><small>02 / PROPERTY</small><h3>ملک و توسعه زمین</h3><p>اطلاعات مختصاتی و نقشه‌های مورد نیاز برای بررسی ملک و زمین.</p></div></article>
+          <article class="domain-card"><img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="ساختمان و تحلیل محیط ساخته‌شده" loading="lazy"><div class="domain-content"><small>03 / GEO DATA</small><h3>داده‌های مکانی و GIS</h3><p>تبدیل داده به لایه‌های منظم، تحلیل فضایی و ارائه خروجی روشن.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">روند همکاری</span><h2>چهار گام تا خروجی مشخص</h2></div>
+          <p>فرایند همکاری ساده نگه داشته شده تا در هر مرحله بدانید چه چیزی بررسی می‌شود و گام بعدی چیست.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step"><span class="step-no">01</span><h3>گفت‌وگوی اولیه</h3><p>شرح پروژه، محدوده، مدارک و مسئله‌ای که قرار است حل شود.</p></div>
+          <div class="process-step"><span class="step-no">02</span><h3>تعریف دامنه کار</h3><p>مشخص‌کردن روش مناسب، داده‌های لازم و قالب خروجی.</p></div>
+          <div class="process-step"><span class="step-no">03</span><h3>اجرا و بررسی</h3><p>انجام کار بر اساس دامنه توافق‌شده و بررسی داده‌های خروجی.</p></div>
+          <div class="process-step"><span class="step-no">04</span><h3>تحویل و توضیح</h3><p>ارائه خروجی و توضیح نکات لازم برای استفاده از آن.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">شروع گفت‌وگو</span>
+          <h2>درباره پروژه‌تان صحبت کنیم.</h2>
+          <p>نوع خدمت، محل یا محدوده پروژه و خروجی موردنیاز را توضیح دهید. برای شروع، تماس مستقیم یا پیام در واتساپ کافی است.</p>
+          <a class="btn btn-primary" href="tel:09140884403">تماس مستقیم <span>↗</span></a>
+        </div>
+        <div class="contact-panel">
+          <h3>علی رضازاده بگلر</h3>
+          <p>برای هماهنگی و بررسی اولیه‌ی درخواست خدمات</p>
+          <div class="contact-row"><span>شماره تماس</span><strong>0914 088 4403</strong></div>
+          <div class="contact-row"><span>تماس با موبایل</span><strong><a href="tel:09140884403">09140884403</a></strong></div>
+          <div class="contact-actions"><a class="btn btn-primary" href="tel:09140884403">تماس بگیرید ↗</a><a class="btn btn-outline" href="https://wa.me/989140884403" target="_blank" rel="noopener noreferrer">پیام در واتساپ ↗</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <a class="footer-brand" href="#home"><span class="brand-mark">A<span style="color:#d77e53">.</span>R</span><span><p>علی رضازاده بگلر</p><small>نقشه‌برداری و خدمات مکانی</small></span></a>
+        <nav class="footer-links" aria-label="پیوندهای پایین صفحه"><a href="#services">خدمات</a><a href="#about">درباره من</a><a href="#fields">زمینه‌های همکاری</a><a href="#process">روند کار</a><a href="#contact">تماس</a></nav>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> علی رضازاده بگلر. تمامی حقوق محفوظ است.</span><a href="tel:09140884403">0914 088 4403</a></div>
+    </div>
+  </footer>
+  <a class="mobile-call" href="tel:09140884403">☎ تماس با علی رضازاده بگلر</a>
+  <script>
+    (function(){
+      var toggle=document.getElementById('nav-toggle');
+      var nav=document.getElementById('nav-links');
+      if(toggle&&nav){
+        toggle.addEventListener('click',function(){
+          var opened=nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded',String(opened));
+          toggle.textContent=opened?'×':'☰';
+        });
+        nav.querySelectorAll('a').forEach(function(link){
+          link.addEventListener('click',function(){
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded','false');
+            toggle.textContent='☰';
+          });
+        });
+      }
+      var year=document.getElementById('year');
+      if(year)year.textContent=new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
