@@ -3,7 +3,6 @@
   var mapElement=document.getElementById('project-map');
   var status=document.getElementById('location-status');
   var feedback=document.getElementById('form-feedback');
-  var fallback=document.getElementById('whatsapp-fallback');
   var locationPoint=null;
   var map=null;
   var marker=null;
@@ -38,7 +37,7 @@
     map.on('click',function(e){moveMarker(e.latlng);});
     setTimeout(function(){map.invalidateSize();},250);
   }else if(status){
-    status.innerHTML='<strong>نقشه بارگذاری نشد</strong><span>اتصال اینترنت را بررسی کنید. در صورت نیاز می‌توانید از واتساپ استفاده کنید.</span>';
+    status.innerHTML='<strong>نقشه بارگذاری نشد</strong><span>اتصال اینترنت را بررسی کنید و صفحه را دوباره بارگذاری کنید.</span>';
   }
 
   var locate=document.getElementById('use-device-location');
@@ -76,37 +75,11 @@
     };
   }
 
-  function makeWhatsAppUrl(payload){
-    var lines=[
-      'سلام، درخواست خدمات جدید از وب‌سایت علی رضازاده بگلر دارم.',
-      '',
-      'نام: '+(payload.name||'—'),
-      'شماره تماس: '+(payload.phone||'—'),
-      'نوع خدمت: '+(payload.service||'—'),
-      'زمان‌بندی: '+(payload.timing||'قابل هماهنگی'),
-      'نشانی/محدوده: '+(payload.address||'ذکر نشده'),
-      'توضیحات پروژه: '+(payload.description||'—'),
-      'ایمیل/راه ارتباطی: '+(payload.email||'ذکر نشده')
-    ];
-    if(payload.location){
-      var lat=Number(payload.location.lat).toFixed(6);
-      var lng=Number(payload.location.lng).toFixed(6);
-      lines.push('مختصات پروژه: '+lat+', '+lng);
-      lines.push('Google Maps: https://www.google.com/maps?q='+lat+','+lng);
-      lines.push('OpenStreetMap: https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lng+'#map=17/'+lat+'/'+lng);
-    }else{
-      lines.push('موقعیت پروژه روی نقشه انتخاب نشده است.');
-    }
-    lines.push('محدوده خدمات میدانی: ارومیه و آذربایجان غربی');
-    return 'https://wa.me/989140884403?text='+encodeURIComponent(lines.join('\n'));
-  }
-
   if(form)form.addEventListener('submit',async function(event){
     event.preventDefault();
     if(!form.reportValidity())return;
 
     var payload=makePayload(new FormData(form));
-    if(fallback){fallback.style.display='none';fallback.removeAttribute('href');}
     if(feedback)feedback.textContent='در حال ارسال امن درخواست به ایمیل؛ لطفاً صفحه را نبندید.';
     if(submitButton){submitButton.disabled=true;submitButton.setAttribute('aria-busy','true');}
 
@@ -131,8 +104,7 @@
       }
       form.reset();
     }catch(error){
-      if(feedback)feedback.textContent=(error&&error.message?error.message:'خطای نامشخص')+' امکان استفاده از روش جایگزین واتساپ را دارید.';
-      if(fallback){fallback.href=makeWhatsAppUrl(payload);fallback.style.display='inline-flex';}
+      if(feedback)feedback.textContent=(error&&error.message?error.message:'ارسال درخواست ناموفق بود.')+' درخواست ارسال نشده است؛ تنظیمات ایمیل باید بررسی شود و سپس دوباره تلاش کنید.';
     }finally{
       if(submitButton){submitButton.disabled=false;submitButton.removeAttribute('aria-busy');}
     }
