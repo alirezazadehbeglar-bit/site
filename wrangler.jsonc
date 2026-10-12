@@ -4,6 +4,7 @@
   "main": "src/index.js",
   "compatibility_date": "2026-10-12",
   "vars": {
+    "CONTACT_TO_EMAIL": "alirezazadehbeglar@gmail.com",
     "CONTACT_FROM_EMAIL": "Ali RezaZadeh Beglar <requests@send.alirezade.ir>"
   },
   "assets": {
